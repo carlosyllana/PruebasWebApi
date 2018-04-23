@@ -21,7 +21,11 @@ namespace PruebasWebApi.Business.Facade.Controllers
         }
 
 
-
+        /// <summary>
+        /// Gets a student by key
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
         [HttpGet()]
         public async Task<IHttpActionResult> GetAsync(string key)
         {
@@ -30,11 +34,15 @@ namespace PruebasWebApi.Business.Facade.Controllers
         }
 
 
-        //Mi post viene aquí, y le paso un usuario y la clave con la que se guarda. Al usuario le paso un Id, nombre y apellido SI? (escribe ok) 
+        /// <summary>
+        /// Add a student into redis by appseting key
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
         [HttpPost()]
         public async Task<IHttpActionResult> AddAsync(User entity)
         {
-            // Thread.Sleep(10000);ç
+            // Thread.Sleep(10000);
             string key = ConfigurationTools.GetRedisKey();
             return Ok(await this._usuarioBlAsync.SetUserAsync(entity, key));
         }
