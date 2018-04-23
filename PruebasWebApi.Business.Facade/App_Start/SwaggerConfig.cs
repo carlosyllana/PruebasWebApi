@@ -12,7 +12,7 @@ namespace PruebasWebApi.Business.Facade
     {
         protected static string GetXmlCommentsPath()
         {
-            return String.Format(@"{0}\bin\bin\PruebasWebApi.Business.Facade.xml", AppDomain.CurrentDomain.BaseDirectory);
+            return String.Format(@"{0}\bin\PruebasWebApi.Business.Facade.xml", AppDomain.CurrentDomain.BaseDirectory);
         }
 
         public static void Register()
