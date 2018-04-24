@@ -1,7 +1,9 @@
-﻿using System;
+﻿using PruebasWebApi.Business.Facade.App_Start;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Dispatcher;
 
 namespace PruebasWebApi.Business.Facade
 {
@@ -25,6 +27,8 @@ namespace PruebasWebApi.Business.Facade
              routeTemplate: "api/v2/{controller}/{id}",
              defaults: new { id = RouteParameter.Optional }
          );
+
+            config.Services.Replace(typeof(IHttpControllerSelector), new CustomControllerSelector((config)));
         }
     }
 }

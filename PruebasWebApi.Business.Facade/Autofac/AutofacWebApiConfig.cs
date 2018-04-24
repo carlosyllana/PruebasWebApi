@@ -36,6 +36,7 @@ namespace PruebasWebApi.Business.Facade.Autofac
             builder.RegisterGeneric(typeof(RedisDao<>))
                      .As(typeof(IDaoAsync<>))
                      .InstancePerRequest();
+
             builder.RegisterType<RedisDao<User>>()
             .As<IDaoAsync<User>>()
             .InstancePerRequest();
